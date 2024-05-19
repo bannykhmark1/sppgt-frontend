@@ -1,13 +1,48 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import url(https://fonts.googleapis.com/css?family=Raleway:100,200,300,regular,500,600,700,800,900,100italic,200italic,300italic,italic,500italic,600italic,700italic,800italic,900italic);
+:root {
+
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+
+body {
+font-family: "Raleway",;
+color: #363435;
+background-color: #FEEED7;
+display: block;
+}
+
+.custom-pagination {
+    background-color: #fffae6; /* Светло-жёлтый фон */
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.custom-page-item {
+    border-radius: 5px; /* Скругление углов */
+    margin-right: 2px; /* Расстояние между элементами */
+}
+
+.custom-page-link {
+    color: #ff8c00; /* Оранжевый цвет текста */
+    background-color: #fffae6;
+    border-color: #ffc107;
+}
+
+.custom-page-item.active .custom-page-link {
+    color: white;
+    background-color: #ff8c00; /* Оранжевый цвет для активной страницы */
+    border-color: #ff8c00;
+}
+
+.custom-page-link:hover {
+    color: white;
+    background-color: #ff8c00; /* Оранжевый цвет при наведении */
+    border-color: #ff8c00;
+}
+
+.modal {
+    background: #363435;
 }
