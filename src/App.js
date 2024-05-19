@@ -11,6 +11,7 @@ import {useContext, useEffect, useState} from 'react';
 import {Context} from "./index";
 import React from "react";
 import {Spinner} from "react-bootstrap";
+import Footer from "./components/Footer";
 import {check} from "./http/userAPI";
 
 function App() {
@@ -36,6 +37,7 @@ function App() {
       <Shop />
       <AppRouter />
       <Auth />
+      <Footer />
     </BrowserRouter>
   );
 }
