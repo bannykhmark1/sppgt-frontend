@@ -8,7 +8,7 @@ module.exports = {
   theme: {
     extend: {
       backgroundImage: {
-        firewood: "url('../public/image/background-firewood.jpg')",
+        firewood: "url('../public/image/bg-company.jpg')",
       },
       width: {
         100: "450px",

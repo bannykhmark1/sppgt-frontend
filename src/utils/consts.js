@@ -5,3 +5,4 @@ export const LOGIN_ROUTE = '/login';
 export const REGISTRATION_ROUTE = '/registration';
 export const SHOP_ROUTE = '/shop';
 export const DELIVERY_ROUTE = '/delivery'
+export const APP_ROUTE = '/'

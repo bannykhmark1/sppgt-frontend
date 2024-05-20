@@ -46,7 +46,7 @@ export default function Header() {
             <Link to={SHOP_ROUTE} className="text-black px-3 py-2 rounded-md text-sm font-medium"><p className="hover:text-orange-600">Главная</p></Link>
             <Link className="text-black px-3 py-2 rounded-md text-sm font-medium"><p className="hover:text-orange-600">О нас</p></Link>
             <Link to={SHOP_ROUTE} className="text-black px-3 py-2 rounded-md text-sm font-medium"><p className="hover:text-orange-600">Каталог</p></Link>
-            <Link to={Delivery}  className="text-black px-3 py-2 rounded-md text-sm font-medium"><p className="hover:text-orange-600">Доставка и стоимость</p></Link>
+            <Link to={DELIVERY_ROUTE}  className="text-black px-3 py-2 rounded-md text-sm font-medium"><p className="hover:text-orange-600">Доставка и стоимость</p></Link>
             <Link to="#" className="text-black px-3 py-2 rounded-md text-sm font-medium"><p className="hover:text-orange-600">Статьи</p></Link>
             <Link to="/contacts" className="text-black px-3 py-2 rounded-md text-sm font-medium"><p className="hover:text-orange-600">Контакты</p></Link>
           </div>

@@ -5,8 +5,8 @@ import { observer } from "mobx-react-lite";
 import { Context } from "../index";
 import { fetchProducts, fetchTypes } from "../http/productAPI";
 import Pages from "../components/Pages";
-import Navbar from "../components/NavBar";
-
+import NavBar from "../components/NavBar";
+import Footer from '../components/Footer';
 const Shop = observer(() => {
     const { product } = useContext(Context);
 
@@ -30,17 +30,20 @@ const Shop = observer(() => {
 
     return (
         <>
-            <Navbar />
-            <div className="container mx-auto mt-5">
-                <div className="flex">
-                    <div className="w-3/12">
-                        <TypeBar />
-                    </div>
-                    <div className="w-9/12 ml-5">
-                        <ProductList />
-                        <Pages />
+            <div className='flex flex-col justify-between h-screen'>
+                <NavBar />
+                <div className="container mx-auto mt-5">
+                    <div className="flex">
+                        <div className="w-3/12">
+                            <TypeBar />
+                        </div>
+                        <div className="w-9/12 ml-5">
+                            <ProductList />
+                            <Pages />
+                        </div>
                     </div>
                 </div>
+                <Footer />
             </div>
         </>
     );

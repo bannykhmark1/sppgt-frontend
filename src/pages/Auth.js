@@ -4,6 +4,8 @@ import { LOGIN_ROUTE, REGISTRATION_ROUTE, SHOP_ROUTE } from "../utils/consts";
 import { login, registration } from "../http/userAPI";
 import { observer } from "mobx-react-lite";
 import { Context } from "../index";
+import NavBar from "../components/NavBar"
+import Footer from '../components/Footer';
 
 const Auth = observer(() => {
     const { user } = useContext(Context)
@@ -39,6 +41,8 @@ const Auth = observer(() => {
     
 
     return (
+        <div className='flex flex-col justify-between h-screen'>
+        <NavBar />
         <div className="flex items-center justify-center h-screen -mt-16">
             <div className="w-96 p-5 border rounded">
                 <h2 className="text-center">{isLogin ? 'Авторизация' : "Регистрация"}</h2>
@@ -76,7 +80,8 @@ const Auth = observer(() => {
                 </div>
             </div>
         </div>
-
+        <Footer />
+        </div>
     );
 });
 
