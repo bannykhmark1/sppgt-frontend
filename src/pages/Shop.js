@@ -7,13 +7,14 @@ import { fetchProducts, fetchTypes } from "../http/productAPI";
 import Pages from "../components/Pages";
 import NavBar from "../components/NavBar";
 import Footer from '../components/Footer';
+
 const Shop = observer(() => {
     const { product } = useContext(Context);
 
     const setTypes = useCallback((types) => {
         product.setTypes(types);
     }, [product]);
-
+    
     const setProducts = useCallback((data) => {
         product.setProducts(data.rows);
         product.setTotalCount(data.count);
@@ -30,21 +31,27 @@ const Shop = observer(() => {
 
     return (
         <>
-            <div className='flex flex-col justify-between h-screen'>
-                <NavBar />
-                <div className="container mx-auto mt-5">
-                    <div className="flex">
-                        <div className="w-3/12">
-                            <TypeBar />
-                        </div>
-                        <div className="w-9/12 ml-5">
+            <NavBar />
+            <div className="flex flex-col bg-cover bg-center min-h-screen">
+                <div className="flex flex-grow container mx-auto py-10 px-6 bg-white bg-opacity-90 rounded-lg shadow-2xl mt-16">
+                    <div className="w-1/4 p-5 border-r border-gray-300">
+                        <h2 className="text-4xl font-bold mb-5 text-gray-800">Категории</h2>
+                        <TypeBar />
+                    </div>
+                    <div className="w-3/4 p-5">
+                        <h2 className="text-4xl font-bold mb-5 text-gray-800">Ассортимент</h2>
+                        <div className="flex flex-col space-y-5">
                             <ProductList />
-                            <Pages />
                         </div>
                     </div>
                 </div>
-                <Footer />
+                <div className="container mx-auto py-5 bg-white bg-opacity-90 shadow-2xl">
+                    <div className="container mx-auto flex justify-center">
+                        <Pages />
+                    </div>
+                </div>
             </div>
+            <Footer />
         </>
     );
 });
