@@ -18,7 +18,7 @@ function App() {
     check()
       .then(userData => {
         user.setUser(userData)
-        user.setIsAuth(true)
+      
       })
       .finally(() => setLoading(false))
   }, [])

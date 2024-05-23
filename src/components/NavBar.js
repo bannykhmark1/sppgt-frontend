@@ -15,8 +15,6 @@ export default function Header() {
   const { user } = useContext(Context)
   const navigate = useNavigate()
 
-  console.log(user)
-
   const logOut = () => {
     user.setIsAuth(false);
     navigate(APP_ROUTE);
@@ -78,7 +76,7 @@ export default function Header() {
                   Выйти
                 </button>
 
-                <p>{user.IsAuth}</p>
+                <p>{console.log(user.isAuth)}</p>
                 
 
               </Nav>
