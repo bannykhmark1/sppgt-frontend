@@ -6,7 +6,7 @@ import { Context } from "../index";
 import { useState } from "react";
 import Modal from "./modalSink";
 import Delivery from "../pages/Delivery";
-import { LOGIN_ROUTE, SHOP_ROUTE, PRODUCT_ROUTE, ADMIN_ROUTE, DELIVERY_ROUTE } from "../utils/consts";
+import { LOGIN_ROUTE, SHOP_ROUTE, PRODUCT_ROUTE, ADMIN_ROUTE, DELIVERY_ROUTE, APP_ROUTE } from "../utils/consts";
 import { Link, useNavigate } from 'react-router-dom';
 
 export default function Header() {
@@ -18,10 +18,13 @@ export default function Header() {
   console.log(user)
 
   const logOut = () => {
-    user.setUser({})
-    user.setIsAuth(false)
-    console.log(user.IsAuth)
-  }
+    user.setIsAuth(false);
+    navigate(APP_ROUTE);
+    user.setUser({});
+    console.log(user.isAuth); // Logging the current state
+   
+}
+
   function goToLoginPage() {
     navigate(LOGIN_ROUTE);
   }

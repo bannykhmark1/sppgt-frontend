@@ -6,3 +6,4 @@ export const REGISTRATION_ROUTE = '/registration';
 export const SHOP_ROUTE = '/shop';
 export const DELIVERY_ROUTE = '/delivery'
 export const APP_ROUTE = '/'
+export const CONTACTS_ROUTE = '/contacts'
