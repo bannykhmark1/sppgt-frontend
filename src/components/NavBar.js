@@ -6,7 +6,7 @@ import { Context } from "../index";
 import { useState } from "react";
 import Modal from "./modalSink";
 import Delivery from "../pages/Delivery";
-import { LOGIN_ROUTE, SHOP_ROUTE, PRODUCT_ROUTE, ADMIN_ROUTE, DELIVERY_ROUTE, APP_ROUTE } from "../utils/consts";
+import { LOGIN_ROUTE, SHOP_ROUTE, PRODUCT_ROUTE, ADMIN_ROUTE, DELIVERY_ROUTE, APP_ROUTE, CONTACTS_ROUTE, REVIEW_ROUTE } from "../utils/consts";
 import { Link, useNavigate } from 'react-router-dom';
 
 export default function Header() {
@@ -16,13 +16,10 @@ export default function Header() {
   const navigate = useNavigate()
 
   const logOut = () => {
-    user.setIsAuth(false);
+    user.logout();
     navigate(APP_ROUTE);
-    user.setUser({});
-    console.log(user.isAuth); // Logging the current state
-   
-}
-
+    console.log('User isAuth state after logout:', user.isAuth); // Logging the current state
+  };
   function goToLoginPage() {
     navigate(LOGIN_ROUTE);
   }
@@ -49,7 +46,8 @@ export default function Header() {
             <Link to={SHOP_ROUTE} className="text-black px-3 py-2 rounded-md text-sm font-medium"><p className="hover:text-orange-600">Каталог</p></Link>
             <Link to={DELIVERY_ROUTE}  className="text-black px-3 py-2 rounded-md text-sm font-medium"><p className="hover:text-orange-600">Доставка и стоимость</p></Link>
             <Link to="#" className="text-black px-3 py-2 rounded-md text-sm font-medium"><p className="hover:text-orange-600">Статьи</p></Link>
-            <Link to="/contacts" className="text-black px-3 py-2 rounded-md text-sm font-medium"><p className="hover:text-orange-600">Контакты</p></Link>
+            <Link to={CONTACTS_ROUTE} className="text-black px-3 py-2 rounded-md text-sm font-medium"><p className="hover:text-orange-600">Контакты</p></Link>
+            <Link to={REVIEW_ROUTE} className="text-black px-3 py-2 rounded-md text-sm font-medium"><p className="hover:text-orange-600">Отзывы</p></Link>
           </div>
           <div className="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
             <button

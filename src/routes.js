@@ -1,11 +1,12 @@
 import { createBrowserRouter } from "react-router-dom";
 
 import Admin from "./pages/Admin";
-import { ADMIN_ROUTE, BASKET_ROUTE, PRODUCT_ROUTE, LOGIN_ROUTE, REGISTRATION_ROUTE, SHOP_ROUTE, DELIVERY_ROUTE, APP_ROUTE, CONTACTS_ROUTE } from "./utils/consts";
+import { ADMIN_ROUTE, BASKET_ROUTE, PRODUCT_ROUTE, LOGIN_ROUTE, REGISTRATION_ROUTE, SHOP_ROUTE, DELIVERY_ROUTE, APP_ROUTE, CONTACTS_ROUTE, REVIEW_ROUTE } from "./utils/consts";
 import Basket from "./pages/Basket";
 import Shop from "./pages/Shop";
 import Auth from "./pages/Auth";
 import ProductPage from "./pages/ProductPage";
+import ReviewsPage from "./pages/ReviewsPage";
 import Contacts from "./pages/Contacts";
 import Delivery from "./pages/Delivery";
 import App from "./App";
@@ -23,6 +24,10 @@ export const authRoutes = [
 ]
 
 export const publicRoutes = [
+    {
+        path: REVIEW_ROUTE,
+        Component: ReviewsPage
+    },
     {
         path: CONTACTS_ROUTE,
         Component: Contacts

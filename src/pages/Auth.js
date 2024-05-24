@@ -14,7 +14,7 @@ const Auth = observer(() => {
     const isLogin = location.pathname === LOGIN_ROUTE;
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const [name, setName] = useState(''); // состояние для имени
+    const [name, setName] = useState('');
 
     const click = async () => {
         try {
@@ -22,12 +22,16 @@ const Auth = observer(() => {
             if (isLogin) {
                 data = await login(email, password);
             } else {
-                data = await registration(email, password, name); // передаем имя
+                data = await registration(email, password, name);
             }
 
             // Сохраняем данные пользователя и устанавливаем флаг авторизации
             user.setUser(data);
             user.setIsAuth(true);
+
+            // Сохраняем данные пользователя в localStorage
+            localStorage.setItem('user', JSON.stringify(data));
+            localStorage.setItem('isAuth', 'true');
 
             // Перенаправляем на главную страницу
             navigate(APP_ROUTE);
@@ -35,7 +39,7 @@ const Auth = observer(() => {
             if (e.response && e.response.data && e.response.data.message) {
                 alert(e.response.data.message);
             } else {
-                console.error(e); // логи для отладки
+                console.error(e);
             }
         }
     };
@@ -71,7 +75,7 @@ const Auth = observer(() => {
                         <div className="flex items-center justify-between mt-3">
                             {isLogin ? (
                                 <div>
-                                    Нет аккаунта? <NavLink to={REGISTRATION_ROUTE}>Зарегистрируйся!</NavLink>
+                                    Нет аккаунта?<NavLink to={REGISTRATION_ROUTE}>Зарегистрируйся!</NavLink>
                                 </div>
                             ) : (
                                 <div>
