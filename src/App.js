@@ -20,7 +20,7 @@ function App() {
       .then(userData => {
         if (userData) {
           user.setUser(userData);
-          user.setIsAuth(true);
+
         }
       })
       .catch(err => {

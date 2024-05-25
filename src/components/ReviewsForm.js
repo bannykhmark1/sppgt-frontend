@@ -1,19 +1,20 @@
 import React, { useState } from 'react';
-import { createReview } from '../http/reviewAPI';  // Импортируем функцию для создания отзыва
+import { createReview } from '../http/reviewAPI';
 
-const ReviewsForm = ({ userId }) => {
+const ReviewsForm = ({ user, addReview }) => {
     const [text, setText] = useState('');
     const [error, setError] = useState(null);
     const [message, setMessage] = useState('');
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        const date = new Date().toISOString(); // Добавление текущей даты и времени
         try {
-            const response = await createReview({ text, userId });
-            console.log('Отзыв создан:', response);
+            const newReview = await createReview({ text, userId: user.id, userName: user.name, date });
             setText('');
             setMessage('Отзыв успешно создан!');
             setError(null);
+            addReview(newReview); // Добавляем новый отзыв в состояние
         } catch (error) {
             console.error('Ошибка при создании отзыва', error);
             setError('Ошибка при создании отзыва');
@@ -21,17 +22,26 @@ const ReviewsForm = ({ userId }) => {
     };
 
     return (
-        <form onSubmit={handleSubmit}>
-            <textarea
-                value={text}
-                onChange={(e) => setText(e.target.value)}
-                placeholder="Оставьте свой отзыв"
-                required
-            ></textarea>
-            <button type="submit">Отправить</button>
-            {error && <p style={{ color: 'red' }}>{error}</p>}
-            {message && <p style={{ color: 'green' }}>{message}</p>}
-        </form>
+        <>
+            {user.isAuth ? (
+                <form onSubmit={handleSubmit} className="space-y-4">
+                    <textarea
+                        value={text}
+                        onChange={(e) => setText(e.target.value)}
+                        placeholder="Оставьте свой отзыв"
+                        required
+                        className="w-full p-4 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500"
+                    ></textarea>
+                    <button type="submit" className="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600">
+                        Отправить
+                    </button>
+                    {error && <p className="text-red-500">{error}</p>}
+                    {message && <p className="text-green-500">{message}</p>}
+                </form>
+            ) : (
+                <p>Войдите в систему, чтобы оставить отзыв.</p>
+            )}
+        </>
     );
 };
 

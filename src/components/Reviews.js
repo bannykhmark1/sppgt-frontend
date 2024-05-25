@@ -1,33 +1,21 @@
-import React, { useEffect, useState } from 'react';
-import { getReviews } from '../http/reviewAPI';
+import React from 'react';
+import { useContext, useEffect, useState } from 'react';
+import { check } from "../http/userAPI";
+import { Context } from "../index";
 
-const Reviews = () => {
-    const [reviews, setReviews] = useState([]);
-    const [error, setError] = useState(null);
+const Reviews = ({ reviews }) => {
 
-    useEffect(() => {
-        const fetchReviews = async () => {
-            try {
-                const reviewsData = await getReviews();
-                setReviews(reviewsData);
-            } catch (error) {
-                console.error('Ошибка при получении отзывов', error);
-                setError('Ошибка при получении отзывов');
-            }
-        };
-
-        fetchReviews();
-    }, []);
+    const { user } = useContext(Context);
+    console.log(user.user.name)
 
     return (
-        <div>
-            <h1>Отзывы</h1>
-            {error && <p style={{ color: 'red' }}>{error}</p>}
-            <ul>
-                {reviews.map((review, index) => (
-                    <li key={index}>{review.text}</li>
-                ))}
-            </ul>
+        <div className="space-y-4">
+            {reviews.map((review) => (
+                <div key={review.id} className="p-4 border rounded-lg shadow-md">
+                    <p className="text-gray-700"><strong>{review.id}:</strong> {new Date(review.createdAt).toLocaleString()}</p>
+                    <p>{review.text}</p>
+                </div>
+            ))}
         </div>
     );
 };

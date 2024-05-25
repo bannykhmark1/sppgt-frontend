@@ -1,28 +1,28 @@
 import axios from 'axios';
+import { $host } from '.';
 
-const API_URL = '/api/reviews';
 
 export const createReview = async (data) => {
-    const response = await axios.post(API_URL, data);
+    const response = await $host.post("api/reviews", data);
     return response.data;
 };
 
 export const getReviews = async () => {
-    const response = await axios.get(API_URL);
+    const response = await $host.get("api/reviews");
     return response.data;
 };
 
 export const getReviewById = async (id) => {
-    const response = await axios.get(API_URL + id );
+    const response = await $host.get("api/reviews/" + id );
     return response.data;
 };
 
 export const updateReview = async (id, data) => {
-    const response = await axios.put(API_URL + id, data);
+    const response = await $host.put("api/reviews/" + id, data);
     return response.data;
 };
 
 export const deleteReview = async (id) => {
-    const response = await axios.delete(API_URL + id);
+    const response = await $host.delete("api/reviews/" + id);
     return response.data;
 };
