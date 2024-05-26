@@ -10,7 +10,7 @@ const ReviewsPage = () => {
     const [reviews, setReviews] = useState([]);
     const [error, setError] = useState(null);
     const { user } = useContext(Context);
-
+    
     useEffect(() => {
         const restoreAuth = async () => {
             try {

@@ -1,91 +1,70 @@
-import React, { useContext, useState } from 'react';
-import { NavLink, useLocation, useNavigate } from "react-router-dom";
-import { LOGIN_ROUTE, REGISTRATION_ROUTE, SHOP_ROUTE } from "../utils/consts";
-import { login, registration } from "../http/userAPI";
+import React, { useContext, useEffect, useCallback } from 'react';
+import TypeBar from "../components/TypeBar";
+import ProductList from "../components/ProductList";
 import { observer } from "mobx-react-lite";
 import { Context } from "../index";
+import { fetchProducts, fetchTypes } from "../http/productAPI";
+import Pages from "../components/Pages";
 import NavBar from "../components/NavBar";
 import Footer from '../components/Footer';
 
-const Auth = observer(() => {
-    const { user } = useContext(Context);
-    const location = useLocation();
-    const navigate = useNavigate();
-    const isLogin = location.pathname === LOGIN_ROUTE;
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
-    const [name, setName] = useState(''); // Новое состояние для имени пользователя
+const Shop = observer(() => {
 
-    const click = async () => {
-        try {
-            let data;
-            if (isLogin) {
-                data = await login(email, password);
-            } else {
-                data = await registration(email, password, name); // Передаем имя пользователя
+    const { user } = useContext(Context)
+    const { product } = useContext(Context);
+
+    const setTypes = useCallback((types) => {
+        product.setTypes(types);
+    }, [product]);
+    
+    const setProducts = useCallback((data) => {
+        product.setProducts(data.rows);
+        product.setTotalCount(data.count);
+  
+    }, [product]);
+    useEffect(() => {
+        const restoreAuth = async () => {
+            try {
+                await user.restoreAuth(); // Восстанавливаем авторизацию при загрузке
+            } catch (error) {
+                console.error('Ошибка при восстановлении авторизации', error);
             }
-            user.setUser(user);
-            user.setIsAuth(true);
-            navigate(SHOP_ROUTE);
-        } catch (e) {
-            if (e.response && e.response.data && e.response.data.message) {
-                alert(e.response.data.message);
-            } else {
-                console.error(e); // как альтернатива вы можете здесь использовать console.log
-            }
-        }
-    };
+        };
+
+        restoreAuth()
+
+        fetchTypes().then(data => setTypes(data));
+        fetchProducts(null, null, 1, 24).then(data => setProducts(data));
+    }, [setTypes, setProducts]);
+    useEffect(() => {
+        fetchProducts(product.selectedType.id, product.page, 24).then(data => setProducts(data));
+    }, [product.page, product.selectedType, setProducts]);
 
     return (
-        <div className='flex flex-col justify-between h-screen'>
+        <>
             <NavBar />
-            <div className="flex items-center justify-center h-screen -mt-16">
-                <div className="w-96 p-5 border rounded">
-                    <h2 className="text-center">{isLogin ? 'Авторизация' : "Регистрация"}</h2>
-                    <div className="mt-3 space-y-2">
-                        {!isLogin && (
-                            <input
-                                className="w-full p-2 border rounded"
-                                placeholder="Введите ваше имя..."
-                                value={name}
-                                onChange={e => setName(e.target.value)}
-                            />
-                        )}
-                        <input
-                            className="w-full p-2 border rounded"
-                            placeholder="Введите ваш email..."
-                            value={email}
-                            onChange={e => setEmail(e.target.value)}
-                        />
-                        <input
-                            className="w-full p-2 border rounded"
-                            placeholder="Введите ваш пароль..."
-                            value={password}
-                            onChange={e => setPassword(e.target.value)}
-                            type="password"
-                        />
-                        <div className="flex items-center justify-between mt-3">
-                            {isLogin ?
-                                <div>
-                                    Нет аккаунта? <NavLink to={REGISTRATION_ROUTE}>Зарегистрируйся!</NavLink>
-                                </div>
-                                :
-                                <div>
-                                    Есть аккаунт? <NavLink to={LOGIN_ROUTE}>Войдите!</NavLink>
-                                </div>
-                            }
-                            <button
-                                className="px-4 py-2 text-white bg-green-500 rounded"
-                                onClick={click}>
-                                {isLogin ? 'Войти' : 'Регистрация'}
-                            </button>
+            <div className="flex flex-col bg-cover bg-center min-h-screen">
+                <div className="flex flex-grow container mx-auto py-10 px-6 bg-white bg-opacity-90 rounded-lg shadow-2xl mt-16">
+                    <div className="w-1/4 p-5 border-r border-gray-300">
+                        <h2 className="text-4xl font-bold mb-5 text-gray-800">Категории</h2>
+                        <TypeBar />
+                    </div>
+                    <div className="w-3/4 p-5">
+                        <h2 className="text-4xl font-bold mb-5 text-gray-800">Ассортимент</h2>
+                        <div className="flex flex-col space-y-5">
+                            <ProductList />
                         </div>
+                    </div>
+                </div>
+                <div className="container mx-auto py-5 bg-white bg-opacity-90 shadow-2xl">
+                    <div className="container mx-auto flex justify-center">
+                        <Pages />
                     </div>
                 </div>
             </div>
             <Footer />
-        </div>
+        </>
     );
 });
 
-export default Auth;
+export default Shop;

@@ -12,7 +12,7 @@ const Reviews = ({ reviews }) => {
         <div className="space-y-4">
             {reviews.map((review) => (
                 <div key={review.id} className="p-4 border rounded-lg shadow-md">
-                    <p className="text-gray-700"><strong>{review.id}:</strong> {new Date(review.createdAt).toLocaleString()}</p>
+                    <p className="text-gray-700"><strong>{review.userName}:</strong> {new Date(review.createdAt).toLocaleString()}</p>
                     <p>{review.text}</p>
                 </div>
             ))}

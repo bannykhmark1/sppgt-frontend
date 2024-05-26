@@ -1,16 +1,19 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { createReview } from '../http/reviewAPI';
+import { Context } from "../index";
 
 const ReviewsForm = ({ user, addReview }) => {
     const [text, setText] = useState('');
     const [error, setError] = useState(null);
     const [message, setMessage] = useState('');
+    
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         const date = new Date().toISOString(); // Добавление текущей даты и времени
+        console.log(user.user)
         try {
-            const newReview = await createReview({ text, userId: user.id, userName: user.name, date });
+            const newReview = await createReview({ text, userId: user.user.id, userName: user.user.name, date });
             setText('');
             setMessage('Отзыв успешно создан!');
             setError(null);
