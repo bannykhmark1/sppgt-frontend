@@ -7,7 +7,7 @@ const ProductList = observer(() => {
     const {product} = useContext(Context)
 
     return (
-        <div className="flex flex-wrap">
+        <div className="flex flex-wrap justify-center">
             {product.products.map(product =>
                 <ProductItem key={product.id} product={product}/>
             )}

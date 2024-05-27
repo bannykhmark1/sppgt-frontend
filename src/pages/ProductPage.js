@@ -17,7 +17,6 @@ const ProductPage = () => {
 
     const handleOrderSubmit = (orderDetails) => {
         console.log('Order details:', orderDetails);
-        // дополнительная логика после отправки формы
     };
 
     return (
@@ -27,7 +26,7 @@ const ProductPage = () => {
                 <div className="flex flex-wrap -mx items-start">
                     <div className="w-full md:w-1/2 px-2 mb-4 md:mb-0">
                         <img
-                            className="w-96 h-96 rounded-lg shadow-lg "
+                            className="w-full h-96 object-cover rounded-lg shadow-lg"
                             src={process.env.REACT_APP_API_URL + product.img}
                             alt={product.name}
                         />

@@ -20,7 +20,6 @@ function App() {
       .then(userData => {
         if (userData) {
           user.setUser(userData);
-
         }
       })
       .catch(err => {
@@ -39,12 +38,14 @@ function App() {
   }
   return (
     <>
+    <div className=" overflow-hidden">
       <NavBar />
-      <div className="w-[960px] m-auto flex flex-col justify-center items-center">
+      <div className="container mx-auto ">
         <Company />
         <About />
       </div>
       <Footer />
+      </div>
     </>
   );
 }
