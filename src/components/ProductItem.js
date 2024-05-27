@@ -8,7 +8,7 @@ const ProductItem = ({ product }) => {
     const navigate = useNavigate();
 
     return (
-        <div className="w-full sm:w-60 m-3 cursor-pointer" onClick={() => navigate(PRODUCT_ROUTE + '/' + product.id)}>
+        <div className="w-full  sm:w-60 m-3 cursor-pointer" onClick={() => navigate(PRODUCT_ROUTE + '/' + product.id)}>
             <div className="border border-light rounded hover:shadow-lg overflow-hidden">
                 <img
                     className="w-full h-48 object-cover"
