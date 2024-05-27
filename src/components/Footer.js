@@ -1,4 +1,6 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+import { APP_ROUTE } from '../utils/consts';
 
 const Footer = () => {
   return (
@@ -21,7 +23,9 @@ const Footer = () => {
         </div>
       </div>
       <div className="flex justify-center mt-6">
-        <span className="bg-gray-700 text-yellow-500 py-1 text-xl px-3 rounded-full">АО СППЖТ</span>
+      <Link to={APP_ROUTE}>
+              <h2 className="text-2xl font-bold md:mr-36 text-gray-700 bg-yellow-500 px-3 py-1 rounded-full">АО СППЖТ</h2>
+            </Link>
       </div>
     </footer>
   );

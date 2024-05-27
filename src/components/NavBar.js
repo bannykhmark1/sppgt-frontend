@@ -3,7 +3,8 @@ import '../../src/index.css';
 import { Context } from "../index";
 import Modal from "../components/modalSink";
 import { Link, useNavigate } from 'react-router-dom';
-import { LOGIN_ROUTE, SHOP_ROUTE, ADMIN_ROUTE, DELIVERY_ROUTE, APP_ROUTE, CONTACTS_ROUTE, REVIEW_ROUTE } from "../utils/consts";
+import { LOGIN_ROUTE, SHOP_ROUTE, ADMIN_ROUTE, DELIVERY_ROUTE, APP_ROUTE, CONTACTS_ROUTE, REVIEW_ROUTE, TOSHAREHOLDERS_ROUTE } from "../utils/consts";
+import ToShareholders from "../pages/ToShareholders";
 
 export default function Header() {
   const { user } = useContext(Context);
@@ -28,10 +29,10 @@ export default function Header() {
   return (
     <header className="fixed mb-24 top-0 z-10">
       <nav className="w-full bg-yellow-400 shadow fixed z-20">
-        <div className="justify-between px-4 mx-auto lg:max-w-7xl md:items-center md:flex md:px-8">
+        <div className="justify-around container mx-auto px-4 md:px-0 md:items-center md:flex ">
           <div className="flex items-center justify-between py-3 md:py-5">
             <Link to={APP_ROUTE}>
-              <h2 className="text-2xl font-bold text-gray-700 bg-yellow-500 px-3 py-1 rounded-full">АО СППЖТ</h2>
+              <h2 className="text-2xl font-bold md:mr-36 text-gray-700 bg-yellow-500 px-3 py-1 rounded-full">АО СППЖТ</h2>
             </Link>
             <div className="md:hidden">
               <button onClick={() => setMenuOpen(!menuOpen)} className="p-2 text-black rounded-md outline-none focus:border-gray-400 focus:border">
@@ -47,8 +48,8 @@ export default function Header() {
               </button>
             </div>
           </div>
-          <div className={`flex-1 justify-self-center pb-3 mt-8 md:block md:pb-0 md:mt-0 ${menuOpen ? "block" : "hidden"}`}>
-            <ul className="items-center justify-center space-y-8 md:flex md:space-x-6 md:space-y-0">
+          <div className={`container flex-1 justify-around pb-3 mt-8 md:block md:pb-0 md:mt-0 ${menuOpen ? "block" : "hidden"}`}>
+            <ul className=" items-center justify-between space-y-8 md:flex md:space-x-6 md:space-y-0">
               <li className="text-black hover:text-orange-600">
                 <Link to={APP_ROUTE}>Главная</Link>
               </li>
@@ -62,7 +63,7 @@ export default function Header() {
                 <Link to={DELIVERY_ROUTE}>Доставка и стоимость</Link>
               </li>
               <li className="text-black hover:text-orange-600">
-                <Link to="#">Статьи</Link>
+                <Link to={TOSHAREHOLDERS_ROUTE}>Акционерам</Link>
               </li>
               <li className="text-black hover:text-orange-600">
                 <Link to={CONTACTS_ROUTE}>Контакты</Link>
@@ -70,10 +71,11 @@ export default function Header() {
               <li className="text-black hover:text-orange-600">
                 <Link to={REVIEW_ROUTE}>Отзывы</Link>
               </li>
+              <div className="flex">
               <li className="mt-3 md:mt-0">
                 <button
                   type="button"
-                  className="text-white bg-orange-500 font-medium hover:bg-orange-600 rounded-lg text-sm px-4 py-2 w-full md:w-auto"
+                  className="text-white mr-2 bg-orange-500 font-medium hover:bg-orange-600 rounded-lg text-sm px-4 py-2 w-full md:w-auto"
                   onClick={() =>setIsOpen(true)}
                   >
                     Заказать звонок
@@ -83,7 +85,7 @@ export default function Header() {
                   <>
                     <li className="mt-3 md:mt-0 hidden md:block">
                       <button
-                        className="text-white bg-orange-500 font-medium hover:bg-orange-600 rounded-lg text-sm px-4 py-2 w-full md:w-auto"
+                        className="text-white mr-2 bg-orange-500 font-medium hover:bg-orange-600 rounded-lg text-sm px-4 py-2 w-full md:w-auto"
                         onClick={goToAdminPanel}
                       >
                         Админ панель
@@ -91,7 +93,7 @@ export default function Header() {
                     </li>
                     <li className="mt-3 md:mt-0 hidden md:block">
                       <button
-                        className="text-white bg-orange-500 font-medium hover:bg-orange-600 rounded-lg text-sm px-4 py-2 w-full md:w-auto"
+                        className="text-white mr-2 bg-orange-500 font-medium hover:bg-orange-600 rounded-lg text-sm px-4 py-2 w-full md:w-auto"
                         onClick={logOut}
                       >
                         Выйти
@@ -108,6 +110,7 @@ export default function Header() {
                     </button>
                   </li>
                 )}
+                </div>
               </ul>
             </div>
           </div>
@@ -115,17 +118,17 @@ export default function Header() {
             <ul className={`mt-4 ${menuOpen ? "block" : "hidden"}`}>
               {user.isAuth ? (
                 <>
-                  <li className="mt-3">
+                  <li className="mt-3 md:mt-0 md:block">
                     <button
-                      className="text-white bg-orange-500 font-medium hover:bg-orange-600 rounded-lg text-sm px-4 py-2 w-full"
+                      className="w-content text-white bg-orange-500 font-medium hover:bg-orange-600 rounded-lg text-sm px-4 py-2 "
                       onClick={goToAdminPanel}
                     >
                       Админ панель
                     </button>
                   </li>
-                  <li className="mt-3">
+                  <li className="mt-3 mr-3 md:mt-0 md:block">
                     <button
-                      className="text-white bg-orange-500 font-medium hover:bg-orange-600 rounded-lg text-sm px-4 py-2 w-full"
+                      className="mt-3 text-white bg-orange-500 font-medium hover:bg-orange-600 rounded-lg text-sm px-4 py-2 w-content"
                       onClick={logOut}
                     >
                       Выйти

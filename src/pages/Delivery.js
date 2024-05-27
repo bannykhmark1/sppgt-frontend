@@ -6,7 +6,7 @@ import Footer from '../components/Footer';
 const Delivery = observer(() => {
     return (
         <>
-            <div className='flex flex-col min-h-screen'>
+            <div className='flex mt-20 flex-col min-h-screen'>
                 <NavBar />
                 <div className="flex-grow flex flex-col justify-center items-center py-10 px-4 sm:px-6 lg:px-8">
                     <div className="max-w-3xl w-full space-y-8">
