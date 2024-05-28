@@ -27,7 +27,7 @@ function App() {
         // Здесь можно обработать ошибку, если нужно, например, показав уведомление пользователю
       })
       .finally(() => setLoading(false));
-  }, [user]);
+  }, [user, loading]); // Добавляем loading в зависимости
 
   if (loading) {
     return (

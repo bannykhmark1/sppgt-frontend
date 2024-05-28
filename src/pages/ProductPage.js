@@ -36,9 +36,7 @@ const ProductPage = () => {
                         <div className="w-full md:w-1/2 md:pl-6 flex flex-col justify-between">
                             <div>
                                 <h2 className="text-3xl font-bold text-black-600 mb-3">{product.name}</h2>
-                                <div className="flex items-center mb-3">
-                                    <span className="text-orange-500 text-xl">{product.rating} ★</span>
-                                </div>
+                       
                                 <h3 className="text-xl font-semibold text-gray-800 mb-2">От: {product.price} руб.</h3>
                             </div>
                             <button

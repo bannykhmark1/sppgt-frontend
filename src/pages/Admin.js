@@ -6,8 +6,9 @@ import NavBar from '../components/NavBar';
 import Footer from '../components/Footer';
 import { check } from '../http/userAPI';
 import DeleteProduct from '../components/modals/DeleteProduct';
+import { observer } from 'mobx-react-lite';
 
-const Admin = () => {
+const Admin = observer(() => {
   const { user } = useContext(Context);
   const [typeVisible, setTypeVisible] = useState(false);
   const [productVisible, setProductVisible] = useState(false);
@@ -64,6 +65,6 @@ const Admin = () => {
       </div>
     </>
   );
-};
+});
 
 export default Admin;

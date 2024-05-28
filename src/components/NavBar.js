@@ -8,8 +8,8 @@ import ToShareholders from "../pages/ToShareholders";
 
 export default function Header() {
   const { user } = useContext(Context);
+  console.log(user.user.role)
   const navigate = useNavigate();
-
   const logOut = () => {
     user.logout();
     navigate(APP_ROUTE);
@@ -83,14 +83,16 @@ export default function Header() {
                 </li>
                 {user.isAuth ? (
                   <>
-                    <li className="mt-3 md:mt-0 hidden md:block">
-                      <button
-                        className="text-white mr-2 bg-orange-500 font-medium hover:bg-orange-600 rounded-lg text-sm px-4 py-2 w-full md:w-auto"
-                        onClick={goToAdminPanel}
-                      >
-                        Админ панель
-                      </button>
-                    </li>
+                 {user.user.role === 'ADMIN' && (
+                      <li className="mt-3 md:mt-0 hidden md:block">
+                        <button
+                          className="text-white mr-2 bg-orange-500 font-medium hover:bg-orange-600 rounded-lg text-sm px-4 py-2 w-full md:w-auto"
+                          onClick={goToAdminPanel}
+                        >
+                          Админ панель
+                        </button>
+                      </li>
+                    )}
                     <li className="mt-3 md:mt-0 hidden md:block">
                       <button
                         className="text-white mr-2 bg-orange-500 font-medium hover:bg-orange-600 rounded-lg text-sm px-4 py-2 w-full md:w-auto"
@@ -99,6 +101,7 @@ export default function Header() {
                         Выйти
                       </button>
                     </li>
+
                   </>
                 ) : (
                   <li className="mt-3 md:mt-0 hidden md:block">
@@ -118,14 +121,16 @@ export default function Header() {
             <ul className={`mt-4 ${menuOpen ? "block" : "hidden"}`}>
               {user.isAuth ? (
                 <>
-                  <li className="mt-3 md:mt-0 md:block">
-                    <button
-                      className="w-content text-white bg-orange-500 font-medium hover:bg-orange-600 rounded-lg text-sm px-4 py-2 "
-                      onClick={goToAdminPanel}
-                    >
-                      Админ панель
-                    </button>
-                  </li>
+                 {user.user.role === 'ADMIN' && (
+                      <li className="mt-3 md:mt-0 hidden md:block">
+                        <button
+                          className="text-white mr-2 bg-orange-500 font-medium hover:bg-orange-600 rounded-lg text-sm px-4 py-2 w-full md:w-auto"
+                          onClick={goToAdminPanel}
+                        >
+                          Админ панель
+                        </button>
+                      </li>
+                    )}
                   <li className="mt-3 mr-3 md:mt-0 md:block">
                     <button
                       className="mt-3 text-white bg-orange-500 font-medium hover:bg-orange-600 rounded-lg text-sm px-4 py-2 w-content"

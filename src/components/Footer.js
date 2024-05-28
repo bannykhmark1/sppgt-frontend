@@ -7,12 +7,12 @@ const Footer = () => {
     <footer className="md:px-0 px-4 bottom-0 w-screen bg-yellow-400 text-gray-800 py-6 mt-10">
       <div className="container mx-auto flex flex-col md:flex-row justify-between items-start">
         <nav className="flex flex-col space-y-2">
-          <a href="#" className="hover:underline">Главная</a>
-          <a href="#" className="hover:underline">О нас</a>
-          <a href="#" className="hover:underline">Каталог</a>
-          <a href="#" className="hover:underline">Доставка и стоимость</a>
-          <a href="#" className="hover:underline">Статьи</a>
-          <a href="#" className="hover:underline">Контакты</a>
+          <Link to="#" className="hover:underline">Главная</Link>
+          <Link to="#" className="hover:underline">О нас</Link>
+          <Link to="#" className="hover:underline">Каталог</Link>
+          <Link to="#" className="hover:underline">Доставка и стоимость</Link>
+          <Link to="#" className="hover:underline">Статьи</Link>
+          <Link to="#" className="hover:underline">Контакты</Link>
         </nav>
         <div className="mt-6 md:mt-0 text-right">
           <p className="font-bold">Контакты для связи</p>
@@ -23,13 +23,12 @@ const Footer = () => {
         </div>
       </div>
       <div className="flex justify-center mt-6">
-      <Link to={APP_ROUTE}>
-              <h2 className="text-2xl font-bold md:mr-36 text-gray-700 bg-yellow-500 px-3 py-1 rounded-full">АО СППЖТ</h2>
-            </Link>
+        <Link to={APP_ROUTE}>
+          <h2 className="text-2xl font-bold md:mr-36 text-gray-700 bg-yellow-500 px-3 py-1 rounded-full">АО СППЖТ</h2>
+        </Link>
       </div>
     </footer>
   );
 };
 
 export default Footer;
-

@@ -1,9 +1,29 @@
 import { observer } from "mobx-react-lite";
 import NavBar from "../components/NavBar";
-import React from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import Footer from '../components/Footer';
-
+import { login, registration,check } from "../http/userAPI";
+import { Context } from "../index";
 const Delivery = observer(() => {
+
+    const { user } = useContext(Context);
+  
+    useEffect(() => {
+      user.restoreAuth(); // Восстанавливаем авторизацию при загрузке
+      console.log('Restored Auth State:', user.isAuth);
+      check()
+        .then(userData => {
+          if (userData) {
+            user.setUser(userData);
+          }
+        })
+        .catch(err => {
+          console.error('Ошибка при проверке пользователя', err);
+          // Здесь можно обработать ошибку, если нужно, например, показав уведомление пользователю
+        })
+    
+    }, [user]);
+
     return (
         <>
             <div className='flex mt-20 flex-col min-h-screen'>
@@ -25,10 +45,9 @@ const Delivery = observer(() => {
                         <div className="bg-white shadow-md rounded-lg p-6">
                             <h2 className="text-xl font-bold text-gray-900">Стоимость Доставки</h2>
                             <ul className="mt-4 space-y-2 text-gray-700">
-                                <li>Зона 1: Бесплатно (до 5 км от центра)</li>
-                                <li>Зона 2: 500 рублей (от 5 до 10 км)</li>
-                                <li>Зона 3: 1000 рублей (от 10 до 20 км)</li>
-                                <li>Зона 4: 1500 рублей (более 20 км)</li>
+                                <li>Зона 1: 1000 рублей (до 10 км от базы)</li>
+                                <li>Зона 2: 1500 рублей (от 10 до 20 км от базы)</li>
+                                <li>Зона 3: 2000 рублей (от 20 до 40 км от базы)</li>
                             </ul>
                         </div>
                     </div>

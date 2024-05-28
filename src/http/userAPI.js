@@ -2,7 +2,7 @@ import {$authHost, $host} from "./index";
 import { jwtDecode } from "jwt-decode"; // Исправлено: убран "{" и "}"
 
 export const registration = async (email, password, name) => {
-    const {data} = await $host.post('api/user/registration', {email, password, name, role: 'ADMIN'});
+    const {data} = await $host.post('api/user/registration', {email, password, name, role: 'public'});
     localStorage.setItem('token', data.token);
     return jwtDecode(data.token);
 };
