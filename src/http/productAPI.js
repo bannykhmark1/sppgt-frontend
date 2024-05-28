@@ -17,6 +17,11 @@ export const createProduct = async (product) => {
     return data;
 }
 
+export const deleteProduct = async (productId) => {
+    const { data } = await $authHost.delete(`api/product/${productId}`);
+    return data;
+};
+
 export const fetchProducts = async (typeId, page, limit=5, minPrice, maxPrice) => {
     const params = { typeId, page, limit };
 

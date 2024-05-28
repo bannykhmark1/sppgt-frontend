@@ -11,10 +11,10 @@ const OrderForm = ({ product, onSubmit, onClose }) => {
         
         const orderDetails = { name, phone, address, product };
 
-        // Обратите внимание на обновленный порт сервера
         axios.post('http://localhost:5000/send', orderDetails)
             .then(response => {
-                console.log('Email sent:', response.data);onSubmit(orderDetails);
+                console.log('Email sent:', response.data);
+                onSubmit(orderDetails);
                 onClose();
             })
             .catch(error => {

@@ -5,11 +5,13 @@ import { Context } from '../index';
 import NavBar from '../components/NavBar';
 import Footer from '../components/Footer';
 import { check } from '../http/userAPI';
+import DeleteProduct from '../components/modals/DeleteProduct';
 
 const Admin = () => {
   const { user } = useContext(Context);
   const [typeVisible, setTypeVisible] = useState(false);
   const [productVisible, setProductVisible] = useState(false);
+  const [deleteVisible, setDeleteVisible] = useState(false);
 
   useEffect(() => {
     const restoreAuthState = async () => {
@@ -48,8 +50,15 @@ const Admin = () => {
           >
             Добавить продукт
           </button>
+          <button
+            className="bg-red-500 text-white text-2xl font-semibold py-3 px-6 rounded-lg hover:bg-red-600 transition duration-300 w-64 text-center"
+            onClick={() => setDeleteVisible(true)}
+          >
+            Удалить продукт
+          </button>
           <CreateProduct show={productVisible} onHide={() => setProductVisible(false)} />
           <CreateType show={typeVisible} onHide={() => setTypeVisible(false)} />
+          <DeleteProduct show={deleteVisible} onHide={() => setDeleteVisible(false)} />
         </div>
         <Footer />
       </div>
