@@ -1,6 +1,6 @@
-import React, { useState, useContext } from 'react';
+import React, { useState } from 'react';
 import { createReview } from '../http/reviewAPI';
-import { Context } from "../index";
+
 
 const ReviewsForm = ({ user, addReview }) => {
     const [text, setText] = useState('');

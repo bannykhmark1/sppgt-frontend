@@ -1,8 +1,8 @@
 import { observer } from "mobx-react-lite";
 import NavBar from "../components/NavBar";
-import React, { useContext, useState, useEffect } from 'react';
+import React, { useContext, useEffect } from 'react';
 import Footer from '../components/Footer';
-import { login, registration,check } from "../http/userAPI";
+import { check } from "../http/userAPI";
 import { Context } from "../index";
 const Delivery = observer(() => {
 

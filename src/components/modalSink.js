@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useForm } from "@formspree/react";
+import React from "react";
 
 export default function Modal({ isOpen, onClose }) {
   const [state, handleSubmit] = useForm("mbjnpeav");

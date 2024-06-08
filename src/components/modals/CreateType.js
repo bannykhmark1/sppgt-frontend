@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
 // Вы можете использовать библиотеку для управления модальными окнами, например Headless UI
-import { Description, Dialog, DialogPanel, DialogTitle } from '@headlessui/react'
-import { createType } from "../../http/productAPI";
+import {  Dialog } from '@headlessui/react'
+
 
 const CreateType = ({ show, onHide }) => {
     const [value, setValue] = useState('');
 
     const addType = async () => {
         try {
-            const data = await createType({ name: value });
+      
             setValue('');
             onHide();
         } catch (error) {

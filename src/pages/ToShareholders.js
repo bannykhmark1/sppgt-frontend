@@ -1,18 +1,16 @@
-import React, { useContext, useEffect, useCallback, useState } from 'react';
-import TypeBar from "../components/TypeBar";
-import ProductList from "../components/ProductList";
-import PriceFilter from "../components/PriceFilter";
+import React, { useContext, useEffect, useCallback } from 'react';
+
 import { observer } from "mobx-react-lite";
 import { Context } from "../index";
 import { fetchProducts, fetchTypes } from "../http/productAPI";
-import Pages from "../components/Pages";
+
 import NavBar from "../components/NavBar";
 import Footer from '../components/Footer';
 
 const ToShareholders = observer(() => {
     const { user } = useContext(Context);
     const { product } = useContext(Context);
-    const [priceFilter, setPriceFilter] = useState({ minPrice: '', maxPrice: '' });
+   
 
     const setTypes = useCallback((types) => {
         product.setTypes(types);
@@ -49,7 +47,7 @@ const ToShareholders = observer(() => {
                     <div className="bg-white p-6 rounded-lg shadow-lg">
                         <ul className="list-disc list-inside mb-6">
                             <li className="mb-4">
-                                Сообщение о проведении очередного общего годового собрания в АО "Свердловское предприятия промышленного железнодорожного транспорта" собрания в заочной форме
+                                Сообщение о проведении очередного общего годового собрания в АО &quot;Свердловское предприятия промышленного железнодорожного транспорта&quot; собрания в заочной форме
                             </li>
                             <li className="mb-4">
                                 16.05.2022 состоится очередное годовое собрание акционеров.
@@ -57,17 +55,17 @@ const ToShareholders = observer(() => {
                                 Регистрация в 10-45. Начало в 11 часов местного времени.
                             </li>
                             <li className="mb-4">
-                                23.06.2021г. В 11-00 (регистрация в 10-45) состоится очередное годовое собрание акционеров АО"СППЖТ".
+                                23.06.2021г. В 11-00 (регистрация в 10-45) состоится очередное годовое собрание акционеров АО &quot;СППЖТ&quot;.
                                 Адрес проведения - г. Екатеринбург, ул.Декабристов 14, офис 217.
                             </li>
                             <li className="mb-4">
-                                С реестром акционеров и повесткой дня собрания для ознакомления можно ознакомится в офисе АО " СППЖТ" п. Монетный, ул. Комсомольская 8а с 9-00 до 12-00.
+                                С реестром акционеров и повесткой дня собрания для ознакомления можно ознакомится в офисе АО &quot;СППЖТ&quot; п. Монетный, ул. Комсомольская 8а с 9-00 до 12-00.
                             </li>
                             <li className="mb-4">
                                 Вопросы по тел. 89043888005 - директор АО СППЖТ Присягина А.Г.
                             </li>
                             <li className="mb-4">
-                                11 сентября 2020 года в 11-00 состоится очередное годовое собрание по итогам 2019 года. Адрес проведения: г. Екатеринбург, ул. Декабристов- 14, офис 217. С реестором акционеров, имеющих право на участие в собрании и повесткой собрания можно ознакомиться в офисе АО " СППЖТ" по адресу: п. Монетный, ул. Комсомольская 8а с 9-00 до 12-00. Все вопросы по тел. 89043888005 директор АО "СППЖТ" в рабочее время.
+                                11 сентября 2020 года в 11-00 состоится очередное годовое собрание по итогам 2019 года. Адрес проведения: г. Екатеринбург, ул. Декабристов- 14, офис 217. С реестром акционеров, имеющих право на участие в собрании и повесткой собрания можноознакомиться в офисе АО &quot;СППЖТ&quot; по адресу: п. Монетный, ул. Комсомольская 8а с 9-00 до 12-00. Все вопросы по тел. 89043888005 директор АО &quot;СППЖТ&quot; в рабочее время.
                             </li>
                         </ul>
                     </div>

@@ -11,7 +11,7 @@ import Contacts from "./pages/Contacts";
 import Delivery from "./pages/Delivery";
 import App from "./App";
 import ToShareholders from "./pages/ToShareholders";
-import { Component } from "react";
+
 
 export const authRoutes = [
     {

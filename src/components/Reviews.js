@@ -1,5 +1,5 @@
-import React, { useContext, useState, useRef, useEffect } from 'react';
-import { Context } from "../index";
+import React, { useState, useRef, useEffect } from 'react';
+import {  } from "../index";
 
 const Review = ({ review }) => {
     const [isExpanded, setIsExpanded] = useState(false);
@@ -48,7 +48,6 @@ const Review = ({ review }) => {
 };
 
 const Reviews = ({ reviews }) => {
-    const { user } = useContext(Context);
 
     return (
         <div className="space-y-4">

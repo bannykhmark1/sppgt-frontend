@@ -4,7 +4,6 @@ import { Context } from "../index";
 import Modal from "../components/modalSink";
 import { Link, useNavigate } from 'react-router-dom';
 import { LOGIN_ROUTE, SHOP_ROUTE, ADMIN_ROUTE, DELIVERY_ROUTE, APP_ROUTE, CONTACTS_ROUTE, REVIEW_ROUTE, TOSHAREHOLDERS_ROUTE } from "../utils/consts";
-import ToShareholders from "../pages/ToShareholders";
 
 export default function Header() {
   const { user } = useContext(Context);

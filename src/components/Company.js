@@ -1,5 +1,5 @@
 import React from "react";
-import { LOGIN_ROUTE, SHOP_ROUTE, ADMIN_ROUTE, DELIVERY_ROUTE, APP_ROUTE, CONTACTS_ROUTE, REVIEW_ROUTE } from "../utils/consts";
+import { SHOP_ROUTE } from "../utils/consts";
 import { Link } from "react-router-dom";
 
 export default function Drovishki() {
