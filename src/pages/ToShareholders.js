@@ -44,7 +44,7 @@ const ToShareholders = observer(() => {
             <div className="flex flex-col min-h-screen justify-between">
                 <div className="container mx-auto px-4 py-8 flex-grow">
                     <h1 className="mt-[80px] text-4xl font-bold text-yellow-800 mb-6 text-center">
-                        Контактная информация
+                        Акционерам
                     </h1>
                     <div className="bg-white p-6 rounded-lg shadow-lg">
                         <ul className="list-disc list-inside mb-6">

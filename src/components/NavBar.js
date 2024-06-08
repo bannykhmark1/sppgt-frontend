@@ -53,9 +53,7 @@ export default function Header() {
               <li className="text-black hover:text-orange-600">
                 <Link to={APP_ROUTE}>Главная</Link>
               </li>
-              <li className="text-black hover:text-orange-600">
-                <Link to="#">О нас</Link>
-              </li>
+    
               <li className="text-black hover:text-orange-600">
                 <Link to={SHOP_ROUTE}>Каталог</Link>
               </li>

@@ -20,6 +20,7 @@
     "react-bootstrap": "^2.10.2",
     "react-dom": "^18.2.0",
     "react-image": "^4.1.0",
+    "react-lines-ellipsis": "^0.15.4",
     "react-range": "^1.8.14",
     "react-router": "^6.23.0",
     "react-router-dom": "^6.23.0",
@@ -50,5 +51,13 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@babel/eslint-parser": "^7.24.6",
+    "babel-eslint": "^10.1.0",
+    "eslint": "^8.57.0",
+    "eslint-plugin-import": "^2.29.1",
+    "eslint-plugin-jsx-a11y": "^6.8.0",
+    "eslint-plugin-react": "^7.34.2"
   }
 }
