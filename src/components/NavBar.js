@@ -7,7 +7,7 @@ import { LOGIN_ROUTE, SHOP_ROUTE, ADMIN_ROUTE, DELIVERY_ROUTE, APP_ROUTE, CONTAC
 
 export default function Header() {
   const { user } = useContext(Context);
-  console.log(user.user.role)
+  console.log(user.user.role);
   const navigate = useNavigate();
   const logOut = () => {
     user.logout();
@@ -26,9 +26,9 @@ export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <header className="fixed mb-24 top-0 z-10">
+    <header className="fixed mb-24 top-0 z-10 w-full">
       <nav className="w-full bg-yellow-400 shadow fixed z-20">
-        <div className="justify-around container mx-auto px-4 md:px-0 md:items-center md:flex ">
+        <div className="justify-around container mx-auto px-4 md:px-0 md:items-center md:flex">
           <div className="flex items-center justify-between py-3 md:py-5">
             <Link to={APP_ROUTE}>
               <h2 className="text-2xl font-bold md:mr-36 text-gray-700 bg-yellow-500 px-3 py-1 rounded-full">АО СППЖТ</h2>
@@ -48,11 +48,10 @@ export default function Header() {
             </div>
           </div>
           <div className={`container flex-1 justify-around pb-3 mt-8 md:block md:pb-0 md:mt-0 ${menuOpen ? "block" : "hidden"}`}>
-            <ul className=" items-center justify-between space-y-8 md:flex md:space-x-6 md:space-y-0">
+            <ul className="items-center justify-between space-y-8 md:flex md:space-x-6 md:space-y-0">
               <li className="text-black hover:text-orange-600">
                 <Link to={APP_ROUTE}>Главная</Link>
               </li>
-    
               <li className="text-black hover:text-orange-600">
                 <Link to={SHOP_ROUTE}>Каталог</Link>
               </li>
@@ -68,69 +67,30 @@ export default function Header() {
               <li className="text-black hover:text-orange-600">
                 <Link to={REVIEW_ROUTE}>Отзывы</Link>
               </li>
-              <div className="flex">
-              <li className="mt-3 md:mt-0">
+              <li className="text-black hover:text-orange-600 mt-3 md:mt-0">
                 <button
                   type="button"
-                  className="text-white mr-2 bg-orange-500 font-medium hover:bg-orange-600 rounded-lg text-sm px-4 py-2 w-full md:w-auto"
-                  onClick={() =>setIsOpen(true)}
-                  >
-                    Заказать звонок
-                  </button>
-                </li>
-                {user.isAuth ? (
-                  <>
-                 {user.user.role === 'ADMIN' && (
-                      <li className="mt-3 md:mt-0 hidden md:block">
-                        <button
-                          className="text-white mr-2 bg-orange-500 font-medium hover:bg-orange-600 rounded-lg text-sm px-4 py-2 w-full md:w-auto"
-                          onClick={goToAdminPanel}
-                        >
-                          Админ панель
-                        </button>
-                      </li>
-                    )}
-                    <li className="mt-3 md:mt-0 hidden md:block">
-                      <button
-                        className="text-white mr-2 bg-orange-500 font-medium hover:bg-orange-600 rounded-lg text-sm px-4 py-2 w-full md:w-auto"
-                        onClick={logOut}
-                      >
-                        Выйти
-                      </button>
-                    </li>
-
-                  </>
-                ) : (
-                  <li className="mt-3 md:mt-0 hidden md:block">
-                    <button
-                      className="text-white bg-orange-500 font-medium hover:bg-orange-600 rounded-lg text-sm px-4 py-2 w-full md:w-auto"
-                      onClick={goToLoginPage}
-                    >
-                      Авторизация
-                    </button>
-                  </li>
-                )}
-                </div>
-              </ul>
-            </div>
-          </div>
-          <div className="md:hidden">
-            <ul className={`mt-4 ${menuOpen ? "block" : "hidden"}`}>
+                  className="text-white bg-orange-500 font-medium hover:bg-orange-600 rounded-lg text-sm px-4 py-2 w-full md:w-auto"
+                  onClick={() => setIsOpen(true)}
+                >
+                  Заказать звонок
+                </button>
+              </li>
               {user.isAuth ? (
                 <>
-                 {user.user.role === 'ADMIN' && (
-                      <li className="mt-3 md:mt-0 hidden md:block">
-                        <button
-                          className="text-white mr-2 bg-orange-500 font-medium hover:bg-orange-600 rounded-lg text-sm px-4 py-2 w-full md:w-auto"
-                          onClick={goToAdminPanel}
-                        >
-                          Админ панель
-                        </button>
-                      </li>
-                    )}
-                  <li className="mt-3 mr-3 md:mt-0 md:block">
+                  {user.user.role === 'ADMIN' && (
+                    <li className="text-black hover:text-orange-600 mt-3 md:mt-0">
+                      <button
+                        className="text-white bg-orange-500 font-medium hover:bg-orange-600 rounded-lg text-sm px-4 py-2 w-full md:w-auto"
+                        onClick={goToAdminPanel}
+                      >
+                        Админ панель
+                      </button>
+                    </li>
+                  )}
+                  <li className="text-black hover:text-orange-600 mt-3 md:mt-0">
                     <button
-                      className="mt-3 text-white bg-orange-500 font-medium hover:bg-orange-600 rounded-lg text-sm px-4 py-2 w-content"
+                      className="text-white bg-orange-500 font-medium hover:bg-orange-600 rounded-lg text-sm px-4 py-2 w-full md:w-auto"
                       onClick={logOut}
                     >
                       Выйти
@@ -138,9 +98,9 @@ export default function Header() {
                   </li>
                 </>
               ) : (
-                <li className="mt-3">
+                <li className="text-black hover:text-orange-600 mt-3 md:mt-0">
                   <button
-                    className="text-white bg-orange-500 font-medium hover:bg-orange-600 rounded-lg text-sm px-4 py-2 w-full"
+                    className="text-white bg-orange-500 font-medium hover:bg-orange-600 rounded-lg text-sm px-4 py-2 w-full md:w-auto"
                     onClick={goToLoginPage}
                   >
                     Авторизация
@@ -149,8 +109,9 @@ export default function Header() {
               )}
             </ul>
           </div>
-        </nav>
-        {isOpen && <Modal isOpen={isOpen} onClose={() => setIsOpen(false)} />}
-      </header>
-    );
-  }
+        </div>
+      </nav>
+      {isOpen && <Modal isOpen={isOpen} onClose={() => setIsOpen(false)} />}
+    </header>
+  );
+}

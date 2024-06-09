@@ -4,24 +4,23 @@ import React, { useContext, useEffect } from 'react';
 import Footer from '../components/Footer';
 import { check } from "../http/userAPI";
 import { Context } from "../index";
-const Delivery = observer(() => {
 
+const Delivery = observer(() => {
     const { user } = useContext(Context);
   
     useEffect(() => {
-      user.restoreAuth(); // Восстанавливаем авторизацию при загрузке
-      console.log('Restored Auth State:', user.isAuth);
-      check()
-        .then(userData => {
-          if (userData) {
-            user.setUser(userData);
-          }
-        })
-        .catch(err => {
-          console.error('Ошибка при проверке пользователя', err);
-          // Здесь можно обработать ошибку, если нужно, например, показав уведомление пользователю
-        })
-    
+        user.restoreAuth(); // Восстанавливаем авторизацию при загрузке
+        console.log('Restored Auth State:', user.isAuth);
+        check()
+            .then(userData => {
+                if (userData) {
+                    user.setUser(userData);
+                }
+            })
+            .catch(err => {
+                console.error('Ошибка при проверке пользователя', err);
+                // Здесь можно обработать ошибку, если нужно, например, показав уведомление пользователю
+            })
     }, [user]);
 
     return (
@@ -45,9 +44,9 @@ const Delivery = observer(() => {
                         <div className="bg-white shadow-md rounded-lg p-6">
                             <h2 className="text-xl font-bold text-gray-900">Стоимость Доставки</h2>
                             <ul className="mt-4 space-y-2 text-gray-700">
-                                <li>Зона 1: 1000 рублей (до 10 км от базы)</li>
-                                <li>Зона 2: 1500 рублей (от 10 до 20 км от базы)</li>
-                                <li>Зона 3: 2000 рублей (от 20 до 40 км от базы)</li>
+                                <li><span className="inline-block w-3 h-3 mr-2 rounded-full bg-red-600"></span>Зона 1: 1000 рублей (до 10 км от базы)</li>
+                                <li><span className="inline-block w-3 h-3 mr-2 rounded-full bg-blue-600"></span>Зона 2: 1500 рублей (от 10 до 20 км от базы)</li>
+                                <li><span className="inline-block w-3 h-3 mr-2 rounded-full bg-orange-600"></span>Зона 3: 2000 рублей (от 20 до 40 км от базы)</li>
                             </ul>
                         </div>
                     </div>

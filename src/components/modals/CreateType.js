@@ -1,16 +1,15 @@
 import React, { useState } from 'react';
-// Вы можете использовать библиотеку для управления модальными окнами, например Headless UI
 import {  Dialog } from '@headlessui/react'
-
+import { createType } from "../../http/productAPI";
 
 const CreateType = ({ show, onHide }) => {
     const [value, setValue] = useState('');
 
     const addType = async () => {
+        const data = await createType({ name: value });
         try {
-      
             setValue('');
-            onHide();
+            onHide(); 
         } catch (error) {
             console.error('Error creating type:', error);
         }

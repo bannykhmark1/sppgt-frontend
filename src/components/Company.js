@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 export default function Drovishki() {
     return (
-        <div className="flex w-screen flex-col md:mt-[80px] mt-[64px]">
+        <div className="flex w-screen flex-col mt-12">
             <div className="container">
                 <div className="text-orange-200 container bg-center bg-cover flex flex-col justify-start items-center">
                     <div className="relative md:py-32 py-10 bg-center bg-cover h-full w-screen items-center mt-0 shadow-lg flex flex-col justify-center"
