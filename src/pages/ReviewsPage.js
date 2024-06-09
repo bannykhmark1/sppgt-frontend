@@ -44,7 +44,7 @@ const ReviewsPage = () => {
 
     return (
         <>
-          <div className="flex flex-col justify-between min-h-screen">
+          <div className="flex flex-col justify-between min-h-screen mt-20">
             <NavBar />
             <div className="container mx-auto px-4 py-8">
                 <h1 className="text-4xl font-bold text-center mb-8">Отзывы о нашей компании</h1>

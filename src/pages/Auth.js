@@ -45,7 +45,7 @@ const Auth = observer(() => {
     };
 
     return (
-        <div className='flex flex-col justify-between h-screen'>
+        <div className='flex flex-col justify-between h-screen mt-24'>
             <NavBar />
             <div className="flex items-center justify-center h-screen -mt-16">
                 <div className="w-96 p-5 border rounded">
@@ -53,20 +53,20 @@ const Auth = observer(() => {
                     <div className="mt-3 space-y-2">
                         {!isLogin && (
                             <input
-                                className="w-full p-2 border rounded"
+                                className="w-full p-2 border-orange-400 rounded"
                                 placeholder="Введите ваше имя..."
                                 value={name}
                                 onChange={e => setName(e.target.value)}
                             />
                         )}
                         <input
-                            className="w-full p-2 border rounded"
+                            className="w-full p-2 border-orange-400 rounded"
                             placeholder="Введите ваш email..."
                             value={email}
                             onChange={e => setEmail(e.target.value)}
                         />
                         <input
-                            className="w-full p-2 border rounded"
+                            className="w-full p-2 border-orange-400 rounded"
                             placeholder="Введите ваш пароль..."
                             value={password}
                             onChange={e => setPassword(e.target.value)}

@@ -21,7 +21,7 @@ const ProductPage = () => {
     };
 
     return (
-        <div className="flex flex-col min-h-screen bg-yellow-50">
+        <div className="flex flex-col md:mt-24 min-h-screen">
             <NavBar />
             <div className="flex-grow container mx-auto flex flex-col items-center justify-center py-12">
                 <div className="w-full md:w-2/3 lg:w-1/2 bg-white p-8 rounded-lg shadow-lg">

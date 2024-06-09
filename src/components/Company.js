@@ -14,7 +14,7 @@ export default function Drovishki() {
                         <div className="absolute inset-0 bg-black opacity-10 blur-lg"></div>
 
                         {/* Content */}
-                        <div className="relative z-9 flex flex-col items-center">
+                        <div className="p-6 relative z-9 flex flex-col items-center">
                             <h1 className="text-6xl font-extrabold text-[#FEEED7] pb-8 text-center">
                                 АО СППЖТ
                             </h1>
