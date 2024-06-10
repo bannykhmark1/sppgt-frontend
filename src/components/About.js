@@ -20,7 +20,7 @@ export default function Info() {
           <div className="md:w-1/2 w-full flex justify-end">
             <img
               className="rounded-lg shadow-lg"
-              src="about.png"
+              src="About.png"
               alt="О нас"
             />
           </div>
