@@ -22,7 +22,7 @@ export const deleteProduct = async (productId) => {
     return data;
 };
 
-export const fetchProducts = async (typeId, page, limit=5, minPrice, maxPrice) => {
+export const fetchProducts = async (typeId, page, limit=100, minPrice, maxPrice) => {
     const params = { typeId, page, limit };
 
     if (minPrice !== '' && minPrice !== null && !isNaN(minPrice)) {

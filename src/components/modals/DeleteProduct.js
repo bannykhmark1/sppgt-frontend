@@ -35,7 +35,7 @@ const DeleteProduct = ({ show, onHide }) => {
     return (
         <Dialog open={show} onClose={onHide} className="fixed inset-0 z-10 overflow-y-auto">
             <div className="flex items-center justify-center min-h-screen px-4">
-                <div className="relative bg-white rounded-lg shadow-xl max-w-md mx-auto p-6 w-full">
+                <div className="relative mx-auto bg-white rounded-lg shadow-xl max-w-md w-full p-6">
                     <DialogTitle className="text-lg font-medium text-gray-900">
                         Удалить продукт
                     </DialogTitle>
@@ -44,14 +44,14 @@ const DeleteProduct = ({ show, onHide }) => {
                     </DialogDescription>
                     <div className="mt-4">
                         {loading ? (
-                            <div>Загрузка...</div>
+                            <div className="text-center">Загрузка...</div>
                         ) : (
-                            <div className="space-y-4">
+                            <div className="space-y-4 max-h-96 overflow-y-auto">
                                 {products.map(product => (
                                     <div key={product.id} className="flex items-center justify-between p-4 bg-white border rounded-lg shadow">
-                                        <span>{product.name}</span>
+                                        <span className="font-medium">{product.name}</span>
                                         <button
-                                            className="bg-red-500 text-white px-4 py-2 rounded-md"
+                                            className="inline-flex items-center px-3 py-1.5 border border-transparent text-xs leading-4 font-medium rounded-md shadow-sm text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500"
                                             onClick={() => handleDelete(product.id)}
                                         >
                                             Удалить
@@ -64,14 +64,14 @@ const DeleteProduct = ({ show, onHide }) => {
                     <div className="mt-6 flex justify-end">
                         <button
                             onClick={onHide}
-                            className="bg-gray-500 text-white px-4 py-2 rounded-md"
+                            className="inline-flex items-center px-3 py-1.5 border border-transparent text-xs leading-4 font-medium rounded-md shadow-sm text-white bg-gray-500 hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-400"
                         >
                             Закрыть
                         </button>
                     </div>
                 </div>
             </div>
-            </Dialog>
+        </Dialog>
     );
 };
 
