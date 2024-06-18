@@ -71,7 +71,7 @@ const DeleteProduct = ({ show, onHide }) => {
                     </div>
                 </div>
             </div>
-        </Dialog>
+            </Dialog>
     );
 };
 
